@@ -4,5 +4,3 @@ Learning_Code
 This is a private learning record
 
 hello world
-
-hello world
