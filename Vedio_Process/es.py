@@ -23,7 +23,7 @@ mask = mask["f"]
 ##编码Code
 output = np.zeros((128+inter*(frame_num-1),128))  
 for i in range(frame_num):
-    input[:,:,i] = input[:,:,i]*mask   
+    input[:,:,i] = input[:,:,i]*mask
 
 ##偏置叠加
 for i in range(frame_num):                 
