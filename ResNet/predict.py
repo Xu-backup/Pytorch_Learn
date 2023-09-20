@@ -19,7 +19,7 @@ def main():
          transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 
     # load image
-    img_path = "PyTorch/ResNet/tulip.jpg"
+    img_path = "./ResNet/tulip.jpg"
     assert os.path.exists(img_path), "file: '{}' dose not exist.".format(img_path)
     img = Image.open(img_path)
     plt.imshow(img)
@@ -30,7 +30,7 @@ def main():
     img = torch.unsqueeze(img, dim=0)
 
     # read class_indict
-    json_path = 'PyTorch\ResNet\class_indices.json'
+    json_path = '.\ResNet\class_indices.json'
     assert os.path.exists(json_path), "file: '{}' dose not exist.".format(json_path)
 
     with open(json_path, "r") as f:
@@ -40,7 +40,7 @@ def main():
     model = resnet34(num_classes=5).to(device)
 
     # load model weights
-    weights_path = "PyTorch\\ResNet\\resNet34.pth"
+    weights_path = ".\\ResNet\\resNet34.pth"
     assert os.path.exists(weights_path), "file: '{}' dose not exist.".format(weights_path)
     model.load_state_dict(torch.load(weights_path, map_location=device))
 
