@@ -7,7 +7,7 @@ import os
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    img_path = 'PyTorch\MNIST\digit.jpg'
+    img_path = '.\MNIST\digit.jpg'
     data_transform = transforms.Compose(
             [transforms.Resize(28),
             transforms.ToTensor(),
@@ -22,7 +22,7 @@ def main():
     model = Net().to(device)
 
     # load model weights
-    weights_path = "PyTorch\\MNIST\\MINST.pth"
+    weights_path = ".\\MNIST\\MINST.pth"
     assert os.path.exists(weights_path), "file: '{}' dose not exist.".format(weights_path)
     model.load_state_dict(torch.load(weights_path, map_location=device))
 
