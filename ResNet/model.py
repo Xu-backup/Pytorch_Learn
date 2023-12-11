@@ -54,10 +54,11 @@ class Bottleneck(nn.Module):
     """
     
     ##in_channel:模块的输入通道
-    ##out_channel:模块的输出通道
-    ##downsample: 恒等变换部分是否降采样 是下采样方法
+    ##out_channel:是实际输出通道的1/4在bottleneck中
+    ##downsample: 恒等变换部分是否降采样 是下采样方法  bottleneck必定使用
     ##expansion = 1：block内的通道数不变
     ##stride：当stride = 1输入矩阵高宽不变，当stride = 2输入矩阵高宽减半
+
     expansion = 4  ##卷积层3的通道数是卷积层1和卷积层2通道数的4倍
 
     def __init__(self, in_channel, out_channel, stride=1, downsample=None,
@@ -165,6 +166,7 @@ class ResNet(nn.Module):
                             stride=stride,
                             groups=self.groups,
                             width_per_group=self.width_per_group))
+        
         self.in_channel = channel * block.expansion
 
         
