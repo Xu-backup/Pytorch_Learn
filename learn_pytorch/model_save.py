@@ -16,4 +16,4 @@ torch.save(model_vgg.state_dict(),"vgg16_method2.pth") ##只有参数
 
 #加载 方式二
 model2_vgg = torchvision.models.vgg16()         ##先恢复网络
-model2_vgg.state_dict(torch.load("vgg16_method2.pth"))  ##再回复参数
+model2_vgg.load_state_dict(torch.load("vgg16_method2.pth"),strict=False)  ##再回复参数
